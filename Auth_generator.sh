@@ -1,6 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
+# cd "$(dirname "$(readlink -f "$BASH_SOURCE")")/.."
+
+# see also ".mailmap" for how email addresses and names are deduplicated
+
+{
+	cat <<-'EOH'
+	# This file lists all individuals having contributed content to the repository.
+	# For how it is generated, see `hack/generate-authors.sh`.
+	EOH
+	echo
 git shortlog -se \
   | perl -spe 's/^\s+\d+\s+//' \
   | sed -e '/^CommitSyncScript.*$/d' \
-  > AUTHORS
+
+} > AUTHORS
