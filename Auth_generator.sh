@@ -15,3 +15,4 @@ git shortlog -se \
   | sed -e '/^CommitSyncScript.*$/d' \
 
 } > AUTHORS
+echo -n 'Rayeh1 <Rayeh1@gmail.com>' >> AUTHORS
